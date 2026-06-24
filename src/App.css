@@ -95,6 +95,10 @@
   color: var(--teal);
 }
 
+.nav a.active {
+  color: var(--ink);
+}
+
 .menu-button {
   display: none;
 }
@@ -1245,6 +1249,122 @@ textarea:focus {
   position: relative;
 }
 
+.page-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 0.92fr) minmax(380px, 1.08fr);
+  gap: 58px;
+  align-items: center;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 88px 28px 72px;
+  border-bottom: 1px solid var(--line);
+}
+
+.page-hero h1 {
+  margin: 0;
+  color: var(--ink);
+  font-family: var(--display);
+  font-size: clamp(44px, 5.2vw, 72px);
+  font-weight: 700;
+  line-height: 0.98;
+}
+
+.page-hero p {
+  max-width: 660px;
+  margin: 24px 0 0;
+  color: var(--text);
+  font-size: 20px;
+  line-height: 1.62;
+}
+
+.page-hero img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 28px 80px rgba(18, 26, 34, 0.13);
+}
+
+.page-band {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 72px 28px;
+}
+
+.authority-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.authority-grid article {
+  padding: 26px 24px;
+  border-right: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.58);
+}
+
+.authority-grid article:last-child {
+  border-right: 0;
+}
+
+.authority-grid h2,
+.split-section h2 {
+  margin: 0;
+  color: var(--ink);
+  font-size: 24px;
+  font-weight: 780;
+  line-height: 1.16;
+}
+
+.authority-grid p,
+.split-section p {
+  margin: 14px 0 0;
+  color: var(--text);
+  font-size: 15px;
+  line-height: 1.68;
+}
+
+.split-section {
+  display: grid;
+  grid-template-columns: 0.88fr 1.12fr;
+  gap: 58px;
+  align-items: start;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 78px 28px;
+  border-bottom: 1px solid var(--line);
+}
+
+.credential-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.credential-list span {
+  padding: 18px;
+  color: var(--ink);
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  font-size: 15px;
+  font-weight: 720;
+}
+
+.credential-list span:nth-child(2n) {
+  border-right: 0;
+}
+
+.credential-list span:nth-last-child(-n + 2) {
+  border-bottom: 0;
+}
+
+.compact-service-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
 .seo-page {
   min-height: 100vh;
   background:
@@ -1410,6 +1530,7 @@ textarea:focus {
   }
 
   .hero-section,
+  .page-hero,
   .seo-hero,
   .scene-strip,
   .audience-section,
@@ -1426,6 +1547,17 @@ textarea:focus {
     grid-template-columns: 1fr;
   }
 
+  .page-hero {
+    gap: 34px;
+    padding: 58px 20px 44px;
+  }
+
+  .page-band,
+  .split-section {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
   .hero-section {
     min-height: auto;
     gap: 34px;
@@ -1439,12 +1571,22 @@ textarea:focus {
 
   .trust-strip,
   .scene-strip,
+  .authority-grid,
+  .credential-list,
   .seo-content,
   .service-grid,
   .audience-grid,
   .safety-lists,
   .pricing-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .authority-grid article:nth-child(2) {
+    border-right: 0;
+  }
+
+  .authority-grid article:nth-child(-n + 2) {
+    border-bottom: 1px solid var(--line);
   }
 
   .service-card:nth-child(2) {
@@ -1468,6 +1610,7 @@ textarea:focus {
   }
 
   .section,
+  .page-hero,
   .seo-hero,
   .seo-content,
   .seo-cta,
@@ -1534,6 +1677,8 @@ textarea:focus {
 
   .trust-strip,
   .scene-strip,
+  .authority-grid,
+  .credential-list,
   .seo-content,
   .service-grid,
   .audience-grid,
@@ -1542,6 +1687,34 @@ textarea:focus {
   .form-row,
   .checklist {
     grid-template-columns: 1fr;
+  }
+
+  .page-hero h1 {
+    font-size: 42px;
+  }
+
+  .page-hero p {
+    font-size: 18px;
+  }
+
+  .authority-grid article,
+  .authority-grid article:nth-child(2) {
+    border-right: 0;
+  }
+
+  .authority-grid article:nth-child(-n + 2) {
+    border-bottom: 1px solid var(--line);
+  }
+
+  .credential-list span,
+  .credential-list span:nth-child(2n),
+  .credential-list span:nth-last-child(-n + 2) {
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .credential-list span:last-child {
+    border-bottom: 0;
   }
 
   .service-card,
