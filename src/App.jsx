@@ -399,7 +399,7 @@ function App() {
     } catch {
       setFormState({
         status: 'error',
-        message: 'The form could not be submitted. Please email comilus@163.com with your dates, contact method, and request details.',
+        message: 'The form could not be submitted yet. Please email comilus@163.com with your dates, contact method, and request details.',
       })
     }
   }
@@ -710,8 +710,10 @@ function App() {
             className="request-form"
             name="comilus-request"
             method="POST"
+            action="/thanks.html"
             data-netlify="true"
             netlify-honeypot="bot-field"
+            data-netlify-honeypot="bot-field"
             onSubmit={handleSubmit}
           >
             <input type="hidden" name="form-name" value="comilus-request" />
