@@ -1,9 +1,9 @@
 import { useMemo, useState } from 'react'
-import businessImage from './assets/business-support.png'
-import checkupImage from './assets/checkup-logistics.png'
-import heroImage from './assets/shenzhen-concierge-hero.png'
-import hotelImage from './assets/hotel-concierge.png'
-import translationImage from './assets/translation-support.png'
+import businessImage from './assets/business-support.jpg'
+import checkupImage from './assets/checkup-logistics.jpg'
+import heroImage from './assets/shenzhen-concierge-hero.jpg'
+import hotelImage from './assets/hotel-concierge.jpg'
+import translationImage from './assets/translation-support.jpg'
 import './App.css'
 
 const services = [
