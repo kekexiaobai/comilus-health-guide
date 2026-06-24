@@ -285,7 +285,7 @@ function PageHero({ title, text, image, children }) {
         <p>{text}</p>
         {children}
       </div>
-      {image && <img src={image} alt="" />}
+      {image && <img src={image} alt="" loading="eager" decoding="sync" fetchPriority="high" />}
     </section>
   )
 }
@@ -454,7 +454,13 @@ function HomePage() {
           </div>
         </div>
         <div className="hero-media" aria-label="International visitor receiving local assistance in Shenzhen">
-          <img src={heroImage} alt="A local assistant helping an international visitor arrive in Shenzhen" />
+          <img
+            src={heroImage}
+            alt="A local assistant helping an international visitor arrive in Shenzhen"
+            loading="eager"
+            decoding="sync"
+            fetchPriority="high"
+          />
           <div className="route-panel" aria-hidden="true">
             <span>SZX</span>
             <i />
