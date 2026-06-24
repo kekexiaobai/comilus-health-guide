@@ -359,12 +359,7 @@ function App() {
     return <SeoLandingPage page={seoPage} />
   }
 
-  function encodeForm(formData) {
-    return new URLSearchParams(formData).toString()
-  }
-
-  async function handleSubmit(event) {
-    event.preventDefault()
+  function handleSubmit(event) {
     const formData = new FormData(event.currentTarget)
     const name = formData.get('name')?.toString().trim()
     const contact = formData.get('contact')?.toString().trim()
@@ -372,35 +367,12 @@ function App() {
     const consent = formData.get('consent')
 
     if (!name || !contact || !need || !consent) {
+      event.preventDefault()
       setFormState({
         status: 'error',
         message: 'Please add your name, contact method, request details, and confirm the service-scope acknowledgement.',
       })
       return
-    }
-
-    setFormState({ status: 'loading', message: 'Submitting your request...' })
-
-    try {
-      const response = await fetch('/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: encodeForm(formData),
-      })
-      if (!response.ok) {
-        throw new Error(`Form submission failed with ${response.status}`)
-      }
-      setFormState({
-        status: 'success',
-        message: 'Thanks. We received your request and will review it within 12 business hours. If it fits our scope, we will send a clear plan, quote, and payment link before work begins.',
-      })
-      event.currentTarget.reset()
-      setSelectedPackage('Checkup or Local Coordination')
-    } catch {
-      setFormState({
-        status: 'error',
-        message: 'The form could not be submitted yet. Please email comilus@163.com with your dates, contact method, and request details.',
-      })
     }
   }
 
