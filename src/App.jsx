@@ -382,11 +382,14 @@ function App() {
     setFormState({ status: 'loading', message: 'Submitting your request...' })
 
     try {
-      await fetch('/', {
+      const response = await fetch('/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: encodeForm(formData),
       })
+      if (!response.ok) {
+        throw new Error(`Form submission failed with ${response.status}`)
+      }
       setFormState({
         status: 'success',
         message: 'Thanks. We received your request and will review it within 12 business hours. If it fits our scope, we will send a clear plan, quote, and payment link before work begins.',
