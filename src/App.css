@@ -927,6 +927,40 @@
   text-decoration: none;
 }
 
+.pricing-explainer {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0;
+  margin-top: 42px;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.62);
+}
+
+.pricing-explainer article {
+  padding: 28px 24px;
+  border-right: 1px solid var(--line);
+}
+
+.pricing-explainer article:last-child {
+  border-right: 0;
+}
+
+.pricing-explainer h3 {
+  margin: 0;
+  color: var(--ink);
+  font-size: 20px;
+  font-weight: 780;
+  line-height: 1.18;
+}
+
+.pricing-explainer p {
+  margin: 13px 0 0;
+  color: var(--text);
+  font-size: 15px;
+  line-height: 1.72;
+}
+
 .payment-rules {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -1383,6 +1417,38 @@ textarea:focus {
   background: rgba(255, 255, 255, 0.72);
 }
 
+.faq-list {
+  display: grid;
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 72px 28px 96px;
+}
+
+.faq-list article {
+  padding: 28px 0;
+  border-top: 1px solid var(--line);
+}
+
+.faq-list article:last-child {
+  border-bottom: 1px solid var(--line);
+}
+
+.faq-list h2 {
+  margin: 0;
+  color: var(--ink);
+  font-size: 24px;
+  font-weight: 780;
+  line-height: 1.2;
+}
+
+.faq-list p {
+  max-width: 780px;
+  margin: 14px 0 0;
+  color: var(--text);
+  font-size: 16px;
+  line-height: 1.72;
+}
+
 .credential-list {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1600,7 +1666,8 @@ textarea:focus {
 
   .page-band,
   .split-section,
-  .policy-section {
+  .policy-section,
+  .faq-list {
     padding-left: 20px;
     padding-right: 20px;
   }
@@ -1621,6 +1688,7 @@ textarea:focus {
   .authority-grid,
   .credential-list,
   .policy-section,
+  .pricing-explainer,
   .seo-content,
   .service-grid,
   .audience-grid,
@@ -1679,7 +1747,8 @@ textarea:focus {
     position: static;
   }
 
-  .payment-rules {
+  .payment-rules,
+  .pricing-explainer {
     grid-template-columns: 1fr;
   }
 
@@ -1697,6 +1766,16 @@ textarea:focus {
   }
 
   .payment-rules article:last-child {
+    border-bottom: 0;
+  }
+
+  .pricing-explainer article,
+  .pricing-explainer article:last-child {
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .pricing-explainer article:last-child {
     border-bottom: 0;
   }
 }
@@ -1734,6 +1813,7 @@ textarea:focus {
   .scene-strip,
   .authority-grid,
   .credential-list,
+  .pricing-explainer,
   .seo-content,
   .service-grid,
   .audience-grid,

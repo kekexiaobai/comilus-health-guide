@@ -12,14 +12,17 @@ const navItems = [
   ['Translation', '/shenzhen-translation-companion/'],
   ['Pricing', '/pricing/'],
   ['Standards', '/standards/'],
+  ['FAQ', '/faq/'],
   ['Contact', '/contact/'],
 ]
 
 const termsSections = [
   ['Service role', 'Comilus is a customer-side local coordination and translation support service in Shenzhen. We are not a hospital, clinic, medical provider, travel agency, insurer, law firm, immigration adviser, or payment service provider.'],
+  ['Partner delivery model', 'Comilus may coordinate independent interpreters, local companions, drivers, administrative helpers, provider reception desks, or other service partners. We manage the client-side coordination, written scope, timing, and partner matching, but we do not claim that every person involved is a Comilus employee.'],
   ['Medical boundary', 'We do not provide medical advice, diagnosis, treatment recommendations, prescriptions, report interpretation, provider ranking, priority access, emergency response, or outcome guarantees. Doctors and qualified providers make all clinical decisions.'],
   ['Scope confirmation', 'Paid work should begin only after the service scope, location, timing, exclusions, fee, third-party costs, deposit, cancellation rule, and required information are confirmed in writing.'],
-  ['Payments and third-party costs', 'Comilus fees are separate from provider fees, checkup fees, transport, parking, meals, tickets, third-party interpreters, payment processing fees, and other third-party costs. Provider or third-party payments should normally be paid directly by the client.'],
+  ['Fees and third-party costs', 'Comilus fees pay for customer-side coordination, partner matching, scheduling support, communication, and service management. Provider fees, checkup fees, transport, parking, meals, tickets, interpreter partner costs, payment processing fees, and other third-party costs are separate unless a written quote clearly includes them.'],
+  ['Provider payments', 'Hospital, clinic, laboratory, hotel, transport, and other provider charges should normally be paid directly by the client to the provider. We do not sell hospital access, guarantee acceptance, or promise any medical result. Any formal provider cooperation must be documented and lawful.'],
   ['Cancellation and refunds', 'Unless a written quote states otherwise, cancellation more than 48 hours before the scheduled start time receives a 70% refund of Comilus service fees, 24-48 hours receives a 50% refund, and within 24 hours is non-refundable. Third-party costs may be non-refundable.'],
   ['Client responsibility', 'Clients are responsible for passports, visas, medical choices, payment credentials, insurance decisions, legal compliance, travel timing, and final decisions. Do not send emergency requests through the public form.'],
 ]
@@ -42,22 +45,22 @@ const services = [
     href: '/shenzhen-local-coordination/',
   },
   {
-    title: 'Translation companion support',
-    text: 'Practical Chinese-English support for scheduled visits, reception desks, business errands, and service counters.',
-    points: ['Reception support', 'Practical interpretation', 'Day-of-visit coordination'],
+    title: 'Interpreter and companion coordination',
+    text: 'We coordinate suitable local interpreters or companions for scheduled visits, reception desks, business errands, and service counters.',
+    points: ['Partner matching', 'Practical interpretation', 'Day-of-visit coordination'],
     icon: 'translate',
     href: '/shenzhen-translation-companion/',
   },
   {
     title: 'Business visit coordination',
-    text: 'Local logistics for meetings, exhibitions, supplier visits, factory tours, coworking days, and multi-stop schedules.',
-    points: ['Itinerary planning', 'Meeting-day companion', 'Transport coordination'],
+    text: 'Local logistics and partner coordination for meetings, exhibitions, supplier visits, factory tours, coworking days, and multi-stop schedules.',
+    points: ['Itinerary planning', 'Partner coordination', 'Transport coordination'],
     icon: 'calendar',
     href: '/services/',
   },
   {
     title: 'Routine checkup logistics',
-    text: 'Appointment request communication, arrival instructions, and practical interpretation for scheduled non-emergency visits.',
+    text: 'Appointment request communication, arrival instructions, and interpreter or companion coordination for scheduled non-emergency visits.',
     points: ['Routine checkup coordination', 'No medical judgment', 'No treatment promise'],
     icon: 'checkup',
     href: '/routine-checkup-logistics-shenzhen/',
@@ -88,7 +91,7 @@ const serviceScenes = [
 const operatingStandards = [
   ['Scope first', 'Every paid request should have a written scope, quote, exclusions, and timing before work begins.'],
   ['No sensitive public uploads', 'The public form does not request medical records, passport images, payment credentials, or insurance cards.'],
-  ['Contractor control', 'Interpreters and companions must follow no-medical-advice and no-payment-credential rules.'],
+  ['Partner control', 'Interpreters, companions, drivers, and other partners must follow no-medical-advice and no-payment-credential rules.'],
   ['Written trail', 'Quotes, timing, cancellation terms, and third-party exclusions are kept in writing.'],
 ]
 
@@ -104,35 +107,51 @@ const pricingPlans = [
     name: 'Trip Readiness Review',
     usd: '$29',
     rmb: 'RMB 199',
-    description: 'A paid written review of your dates, location, likely service fit, preparation checklist, and next step.',
+    description: 'A paid written review of dates, location, likely service fit, preparation checklist, and the safest next step.',
     includes: ['Written logistics review', 'Preparation checklist', 'Credited if you book within 7 days'],
     cta: 'Start with a readiness review',
   },
   {
-    name: 'Checkup or Local Coordination',
-    usd: '$99',
-    rmb: 'RMB 699',
-    description: 'For one routine checkup, appointment, or local coordination request within a clearly written scope.',
-    includes: ['Request review', 'Public contact communication', 'Provider fees not included'],
+    name: 'Appointment Coordination',
+    usd: 'From $69',
+    rmb: 'From RMB 499',
+    description: 'Client-side coordination for one routine appointment, checkup request, or local service request before arrival.',
+    includes: ['Request communication', 'Schedule and route confirmation', 'Provider fees separate'],
     featured: true,
     cta: 'Request coordination',
   },
   {
-    name: 'Half-Day Companion',
-    usd: '$199',
-    rmb: 'RMB 1,480',
-    description: 'Up to 4 hours of in-person support in Shenzhen for scheduled visits or local errands.',
-    includes: ['Basic translation', 'One visit or errand block', 'Overtime billed separately'],
-    cta: 'Check half-day availability',
+    name: 'Half-Day Partner Coordination',
+    usd: 'From $129',
+    rmb: 'From RMB 899',
+    description: 'We coordinate a local interpreter or companion partner for up to 4 hours in Shenzhen.',
+    includes: ['Partner matching', '4-hour service window', 'Overtime quoted before confirmation'],
+    cta: 'Check partner availability',
   },
   {
-    name: 'Full-Day Companion',
-    usd: '$349',
-    rmb: 'RMB 2,580',
-    description: 'Up to 8 hours of in-person support for multi-stop visits, business days, or city assistance.',
-    includes: ['Multi-stop support', 'Transport guidance', 'Overtime billed separately'],
-    cta: 'Check full-day availability',
+    name: 'Full-Day Partner Coordination',
+    usd: 'From $279',
+    rmb: 'From RMB 1,980',
+    description: 'For longer visits, multi-stop days, or business support where Comilus manages the local partner arrangement.',
+    includes: ['Partner matching', '8-hour service window', 'Transport costs separate'],
+    cta: 'Request a full-day quote',
   },
+]
+
+const pricingFactors = [
+  ['What Comilus earns', 'The quoted Comilus service fee includes coordination, partner matching, written scope, schedule confirmation, client communication, and service management. This is the margin that makes the business sustainable.'],
+  ['What changes the quote', 'City, service duration, language, urgency, weekend timing, hospital rules, partner availability, professional difficulty, and overtime can all change the final price.'],
+  ['What stays separate', 'Hospital, clinic, lab, hotel, transport, parking, meals, ticket, and provider charges should normally be paid directly by the client unless a written quote clearly says otherwise.'],
+]
+
+const faqItems = [
+  ['Why is Comilus more expensive than some local companion apps?', 'Local low-cost platforms usually sell basic domestic companion time. Comilus prices for international visitor coordination: English communication, pre-visit planning, written scope, partner matching, schedule confirmation, risk boundaries, and client-side service management.'],
+  ['Do you personally provide the interpreter or companion?', 'Not always. Comilus may coordinate independent interpreters, local companions, drivers, or service partners. We focus on matching, scope control, communication, and making sure the arrangement fits our boundaries.'],
+  ['Are hospital or checkup fees included?', 'No, not by default. Provider charges are separate and should normally be paid directly by the client to the provider. If any third-party cost is included, it must be clearly written in the quote.'],
+  ['Can you recommend the best hospital or guarantee access?', 'No. We can coordinate logistics and public-facing communication, but we do not sell hospital access, rank providers, guarantee acceptance, or promise medical results.'],
+  ['Can the interpreter enter the consultation room?', 'This depends on the provider rules, patient consent, appointment type, and site conditions. We confirm what is allowed before paid work begins whenever possible.'],
+  ['How is overtime charged?', 'Overtime is quoted before confirmation when possible. If a visit runs long unexpectedly, the client must approve additional paid time before the partner continues beyond the agreed scope.'],
+  ['Can I send medical records through the form?', 'No. The public form is only for initial request review. Do not submit medical records, passport images, payment credentials, insurance cards, or emergency requests through it.'],
 ]
 
 const safeTasks = [
@@ -277,6 +296,7 @@ function Footer() {
         </p>
           <nav aria-label="Footer links">
             <a href="/standards/">Operating standards</a>
+            <a href="/faq/">FAQ</a>
             <a href="/terms/">Terms</a>
             <a href="/privacy/">Privacy</a>
             <a href="/pricing/">Pricing</a>
@@ -410,7 +430,7 @@ function RequestForm() {
         </label>
         <label>
           Package interest
-          <select name="package" defaultValue="Checkup or Local Coordination">
+          <select name="package" defaultValue="Appointment Coordination">
             {pricingPlans.map((plan) => (
               <option key={plan.name}>{plan.name}</option>
             ))}
@@ -423,7 +443,7 @@ function RequestForm() {
         <select name="category" defaultValue="Routine checkup logistics">
           <option>Routine checkup logistics</option>
           <option>Arrival and city setup</option>
-          <option>Translation or companion support</option>
+          <option>Interpreter or companion coordination</option>
           <option>Business visit coordination</option>
           <option>Non-emergency appointment request</option>
           <option>Shenzhen local help</option>
@@ -458,10 +478,10 @@ function HomePage() {
         <div className="hero-copy">
           <h1>Shenzhen local support for international visitors</h1>
           <p className="hero-lede">
-            A focused coordination service for routine checkup logistics, translation companion support, business visit help, and practical arrival setup.
+            A client-side coordination service for routine checkup logistics, interpreter and companion partner matching, business visit help, and practical arrival setup.
           </p>
           <p className="hero-note">
-            We handle logistics and communication only. Doctors and qualified professionals make all medical or legal decisions.
+            We coordinate logistics, communication, and local partners only. Doctors and qualified professionals make all medical or legal decisions.
           </p>
           <div className="hero-actions">
             <a className="button primary" href="/contact/">Request review</a>
@@ -493,7 +513,7 @@ function HomePage() {
       <section className="trust-strip" aria-label="Service scope">
         <span>Shenzhen-based support for appointments, translation, arrival logistics, and local coordination.</span>
         <span>Response within 12 business hours</span>
-        <span>Clear quote before payment</span>
+        <span>Written scope and quote before payment</span>
       </section>
 
       <section className="scene-strip" aria-label="Comilus service scenes">
@@ -513,7 +533,7 @@ function HomePage() {
         <div className="section-heading">
           <h2>A narrow, documented service model</h2>
           <p>
-            Comilus is built to be useful without crossing professional boundaries. We confirm scope, price, exclusions, and cancellation terms before paid work begins.
+            Comilus is built to earn from coordination without crossing professional boundaries. We confirm scope, price, partner role, exclusions, and cancellation terms before paid work begins.
           </p>
         </div>
         <ServiceGrid compact />
@@ -527,7 +547,7 @@ function ServicesPage() {
     <>
       <PageHero
         title="Services"
-        text="Practical support for visitors who need Shenzhen to be understandable, scheduled, and documented without relying on informal arrangements."
+        text="Practical customer-side coordination for visitors who need Shenzhen to be understandable, scheduled, and documented without relying on informal arrangements."
         image={businessImage}
       >
         <div className="hero-actions">
@@ -538,7 +558,7 @@ function ServicesPage() {
       <section className="section">
         <div className="section-heading align-left">
           <h2>Service lines</h2>
-          <p>Each service is scoped before payment. We only accept requests that can be handled as logistics, communication, or companion support.</p>
+          <p>Each service is scoped before payment. We only accept requests that can be handled as logistics, communication, partner matching, or companion coordination.</p>
         </div>
         <ServiceGrid />
       </section>
@@ -552,7 +572,7 @@ function CheckupPage() {
     <>
       <PageHero
         title="Routine checkup logistics in Shenzhen"
-        text="Coordination for scheduled non-emergency checkup visits: appointment request communication, arrival instructions, route timing, and practical Chinese-English support."
+        text="Coordination for scheduled non-emergency checkup visits: appointment request communication, arrival instructions, route timing, and interpreter or companion partner matching."
         image={checkupImage}
       >
         <div className="hero-actions">
@@ -564,7 +584,7 @@ function CheckupPage() {
         <div className="authority-grid">
           <article>
             <h2>What we can coordinate</h2>
-            <p>Appointment request communication, visit timing, meeting points, reception support, practical interpretation, and local route planning.</p>
+            <p>Appointment request communication, visit timing, meeting points, reception support, interpreter or companion partner matching, and local route planning.</p>
           </article>
           <article>
             <h2>What we do not do</h2>
@@ -586,7 +606,7 @@ function TranslationPage() {
     <>
       <PageHero
         title="Translation companion support"
-        text="Chinese-English practical communication support for scheduled visits, service counters, business errands, and routine non-emergency appointments in Shenzhen."
+        text="Chinese-English interpreter and companion partner coordination for scheduled visits, service counters, business errands, and routine non-emergency appointments in Shenzhen."
         image={translationImage}
       >
         <div className="hero-actions">
@@ -597,13 +617,13 @@ function TranslationPage() {
       <section className="split-section">
         <div>
           <h2>When this helps</h2>
-          <p>Use this when you need a calm local companion for reception communication, route timing, meeting points, and practical conversations.</p>
+          <p>Use this when you need Comilus to coordinate a suitable local partner for reception communication, route timing, meeting points, and practical conversations.</p>
         </div>
         <div className="credential-list">
           <span>Scheduled visit support</span>
           <span>Reception and counter communication</span>
-          <span>Business-day routing</span>
-          <span>Routine appointment companion coverage</span>
+          <span>Partner matching and briefing</span>
+          <span>Routine appointment companion coordination</span>
         </div>
       </section>
       <StandardsSummary />
@@ -645,25 +665,58 @@ function PricingPage() {
     <>
       <PageHero
         title="Pricing"
-        text="Simple starting prices for review, coordination, and companion support. Final fees depend on scope, timing, location, and contractor availability."
+        text="Starting prices for review, coordination, and partner-managed support. Final quotes depend on scope, timing, location, language, urgency, and partner availability."
         image={businessImage}
       />
       <section className="section pricing-section">
         <PricingGrid />
+        <div className="pricing-explainer">
+          {pricingFactors.map(([title, text]) => (
+            <article key={title}>
+              <h3>{title}</h3>
+              <p>{text}</p>
+            </article>
+          ))}
+        </div>
         <div className="payment-rules">
           <article>
             <h3>Payment terms</h3>
-            <p>Online services and appointment coordination are prepaid. In-person support is reserved with a 50% deposit, with the remaining balance due 24 hours before the scheduled start time.</p>
+            <p>Online reviews and appointment coordination are prepaid. Partner-managed in-person support is normally reserved with a 50% deposit, with the remaining balance due 24 hours before the scheduled start time.</p>
           </article>
           <article>
             <h3>Extra costs</h3>
-            <p>Provider fees, checkup fees, transport, parking, meals, tickets, third-party interpreters, and processing fees are separate.</p>
+            <p>Provider fees, checkup fees, transport, parking, meals, tickets, professional interpreters, special-language partners, overtime, and processing fees are separate unless included in writing.</p>
           </article>
           <article>
             <h3>Cancellation</h3>
             <p>Cancel more than 48 hours before the scheduled start time for a 70% refund, 24-48 hours before for a 50% refund, and within 24 hours no refund.</p>
           </article>
         </div>
+      </section>
+    </>
+  )
+}
+
+function FaqPage() {
+  return (
+    <>
+      <PageHero
+        title="FAQ"
+        text="Answers for clients before they pay: what Comilus charges for, what partners may deliver, what is separate, and where the service boundary stops."
+        image={translationImage}
+      >
+        <div className="hero-actions">
+          <a className="button primary" href="/contact/">Submit a request</a>
+          <a className="button secondary" href="/pricing/">See pricing</a>
+        </div>
+      </PageHero>
+      <section className="faq-list">
+        {faqItems.map(([question, answer]) => (
+          <article key={question}>
+            <h2>{question}</h2>
+            <p>{answer}</p>
+          </article>
+        ))}
       </section>
     </>
   )
@@ -868,6 +921,7 @@ const pageMap = {
   '/shenzhen-local-coordination/': LocalCoordinationPage,
   '/pricing/': PricingPage,
   '/standards/': StandardsPage,
+  '/faq/': FaqPage,
   '/terms/': TermsPage,
   '/privacy/': PrivacyPage,
   '/contact/': ContactPage,
