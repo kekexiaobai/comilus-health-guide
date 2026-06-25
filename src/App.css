@@ -1337,6 +1337,52 @@ textarea:focus {
   border-bottom: 1px solid var(--line);
 }
 
+.policy-section {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 72px 28px 96px;
+}
+
+.policy-section article {
+  padding: 26px 24px;
+  border-top: 1px solid var(--line);
+  border-right: 1px solid var(--line);
+}
+
+.policy-section article:nth-child(2n) {
+  border-right: 0;
+}
+
+.policy-section article:nth-last-of-type(-n + 2) {
+  border-bottom: 1px solid var(--line);
+}
+
+.policy-section h2 {
+  margin: 0;
+  color: var(--ink);
+  font-size: 22px;
+  font-weight: 780;
+  line-height: 1.18;
+}
+
+.policy-section p {
+  margin: 14px 0 0;
+  color: var(--text);
+  font-size: 15px;
+  line-height: 1.72;
+}
+
+.policy-note {
+  grid-column: 1 / -1;
+  margin: 28px 0 0;
+  padding: 18px 20px;
+  border-left: 3px solid var(--gold);
+  background: rgba(255, 255, 255, 0.72);
+}
+
 .credential-list {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1553,7 +1599,8 @@ textarea:focus {
   }
 
   .page-band,
-  .split-section {
+  .split-section,
+  .policy-section {
     padding-left: 20px;
     padding-right: 20px;
   }
@@ -1573,6 +1620,7 @@ textarea:focus {
   .scene-strip,
   .authority-grid,
   .credential-list,
+  .policy-section,
   .seo-content,
   .service-grid,
   .audience-grid,
@@ -1633,6 +1681,13 @@ textarea:focus {
 
   .payment-rules {
     grid-template-columns: 1fr;
+  }
+
+  .policy-section article,
+  .policy-section article:nth-child(2n),
+  .policy-section article:nth-last-of-type(-n + 2) {
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
   }
 
   .payment-rules article,

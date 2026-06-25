@@ -15,6 +15,24 @@ const navItems = [
   ['Contact', '/contact/'],
 ]
 
+const termsSections = [
+  ['Service role', 'Comilus is a customer-side local coordination and translation support service in Shenzhen. We are not a hospital, clinic, medical provider, travel agency, insurer, law firm, immigration adviser, or payment service provider.'],
+  ['Medical boundary', 'We do not provide medical advice, diagnosis, treatment recommendations, prescriptions, report interpretation, provider ranking, priority access, emergency response, or outcome guarantees. Doctors and qualified providers make all clinical decisions.'],
+  ['Scope confirmation', 'Paid work should begin only after the service scope, location, timing, exclusions, fee, third-party costs, deposit, cancellation rule, and required information are confirmed in writing.'],
+  ['Payments and third-party costs', 'Comilus fees are separate from provider fees, checkup fees, transport, parking, meals, tickets, third-party interpreters, payment processing fees, and other third-party costs. Provider or third-party payments should normally be paid directly by the client.'],
+  ['Cancellation and refunds', 'Unless a written quote states otherwise, cancellation more than 48 hours before the scheduled start time receives a 70% refund of Comilus service fees, 24-48 hours receives a 50% refund, and within 24 hours is non-refundable. Third-party costs may be non-refundable.'],
+  ['Client responsibility', 'Clients are responsible for passports, visas, medical choices, payment credentials, insurance decisions, legal compliance, travel timing, and final decisions. Do not send emergency requests through the public form.'],
+]
+
+const privacySections = [
+  ['Information we collect', 'The public request form asks for name, contact method, Shenzhen dates, package interest, support category, request details, and service-scope acknowledgement.'],
+  ['Sensitive information', 'Do not submit medical records, passport images, payment credentials, insurance cards, diagnosis details, bank details, or emergency information through the public form. If more information is needed later, we will ask for permission and explain why.'],
+  ['How we use information', 'We use request details to assess whether the request fits our scope, respond to the client, prepare a quote, coordinate agreed support, and keep a written service trail.'],
+  ['Third-party platforms', 'Messages sent by email, WhatsApp, WeChat, Telegram, PayPal, Netlify forms, or other platforms may also be processed by those third-party services under their own policies.'],
+  ['Sharing', 'If a request later requires sharing limited details with a translator, companion, driver, provider reception desk, or other service partner, we aim to share only what is necessary for the agreed support.'],
+  ['Retention and deletion', 'We keep request records only as long as needed for service review, coordination, dispute handling, accounting, and basic business records. Clients may request deletion of non-required records by contacting comilus@163.com.'],
+]
+
 const services = [
   {
     title: 'Arrival and city setup',
@@ -257,11 +275,13 @@ function Footer() {
         <p>
           Not a hospital, clinic, travel agency, insurer, or medical provider. For emergencies, contact local emergency services or go directly to an emergency department.
         </p>
-        <nav aria-label="Footer links">
-          <a href="/standards/">Operating standards</a>
-          <a href="/pricing/">Pricing</a>
-          <a href="/contact/">Contact</a>
-        </nav>
+          <nav aria-label="Footer links">
+            <a href="/standards/">Operating standards</a>
+            <a href="/terms/">Terms</a>
+            <a href="/privacy/">Privacy</a>
+            <a href="/pricing/">Pricing</a>
+            <a href="/contact/">Contact</a>
+          </nav>
       </div>
     </footer>
   )
@@ -686,6 +706,52 @@ function StandardsPage() {
   )
 }
 
+function TermsPage() {
+  return (
+    <>
+      <PageHero
+        title="Service terms"
+        text="The practical rules for using Comilus: narrow coordination scope, written confirmation before payment, clear cancellation terms, and strict medical-service boundaries."
+        image={businessImage}
+      />
+      <section className="policy-section">
+        {termsSections.map(([title, text]) => (
+          <article key={title}>
+            <h2>{title}</h2>
+            <p>{text}</p>
+          </article>
+        ))}
+        <p className="policy-note">
+          These terms are written for clarity and risk control, but they are not a substitute for advice from a qualified lawyer or accountant. If a written quote conflicts with this page, the written quote controls for that specific service.
+        </p>
+      </section>
+    </>
+  )
+}
+
+function PrivacyPage() {
+  return (
+    <>
+      <PageHero
+        title="Privacy notice"
+        text="How Comilus handles request details, sensitive information boundaries, third-party platforms, and basic record retention."
+        image={translationImage}
+      />
+      <section className="policy-section">
+        {privacySections.map(([title, text]) => (
+          <article key={title}>
+            <h2>{title}</h2>
+            <p>{text}</p>
+          </article>
+        ))}
+        <p className="policy-note">
+          For privacy requests, corrections, or deletion of non-required records, contact comilus@163.com. Do not use the public form for emergencies or sensitive document uploads.
+        </p>
+      </section>
+    </>
+  )
+}
+
 function ContactPage() {
   return (
     <>
@@ -802,6 +868,8 @@ const pageMap = {
   '/shenzhen-local-coordination/': LocalCoordinationPage,
   '/pricing/': PricingPage,
   '/standards/': StandardsPage,
+  '/terms/': TermsPage,
+  '/privacy/': PrivacyPage,
   '/contact/': ContactPage,
 }
 
