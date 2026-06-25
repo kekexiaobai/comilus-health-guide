@@ -17,11 +17,11 @@ const navItems = [
 ]
 
 const termsSections = [
-  ['Service role', 'Comilus is a customer-side local coordination and translation support service in Shenzhen. We are not a hospital, clinic, medical provider, travel agency, insurer, law firm, immigration adviser, or payment service provider.'],
-  ['Partner delivery model', 'Comilus may coordinate independent interpreters, local companions, drivers, administrative helpers, provider reception desks, or other service partners. We manage the client-side coordination, written scope, timing, and partner matching, but we do not claim that every person involved is a Comilus employee.'],
+  ['Service role', 'Comilus is a local coordination and translation support service in Shenzhen. We are not a hospital, clinic, medical provider, travel agency, insurer, law firm, immigration adviser, or payment service provider.'],
+  ['Partner delivery model', 'Comilus may coordinate independent interpreters, local companions, drivers, administrative helpers, provider reception desks, or other service partners. We manage the written scope, timing, communication, and partner matching, but we do not claim that every person involved is a Comilus employee.'],
   ['Medical boundary', 'We do not provide medical advice, diagnosis, treatment recommendations, prescriptions, report interpretation, provider ranking, priority access, emergency response, or outcome guarantees. Doctors and qualified providers make all clinical decisions.'],
   ['Scope confirmation', 'Paid work should begin only after the service scope, location, timing, exclusions, fee, third-party costs, deposit, cancellation rule, and required information are confirmed in writing.'],
-  ['Fees and third-party costs', 'Comilus fees pay for customer-side coordination, partner matching, scheduling support, communication, and service management. Provider fees, checkup fees, transport, parking, meals, tickets, interpreter partner costs, payment processing fees, and other third-party costs are separate unless a written quote clearly includes them.'],
+  ['Fees and third-party costs', 'Comilus fees pay for local coordination, partner matching, scheduling support, communication, and service management. Provider fees, checkup fees, transport, parking, meals, tickets, interpreter partner costs, payment processing fees, and other third-party costs are separate unless a written quote clearly includes them.'],
   ['Provider payments', 'Hospital, clinic, laboratory, hotel, transport, and other provider charges should normally be paid directly by the client to the provider. We do not sell hospital access, guarantee acceptance, or promise any medical result. Any formal provider cooperation must be documented and lawful.'],
   ['Cancellation and refunds', 'Unless a written quote states otherwise, cancellation more than 48 hours before the scheduled start time receives a 70% refund of Comilus service fees, 24-48 hours receives a 50% refund, and within 24 hours is non-refundable. Third-party costs may be non-refundable.'],
   ['Client responsibility', 'Clients are responsible for passports, visas, medical choices, payment credentials, insurance decisions, legal compliance, travel timing, and final decisions. Do not send emergency requests through the public form.'],
@@ -104,48 +104,51 @@ const processSteps = [
 
 const pricingPlans = [
   {
-    name: 'Trip Readiness Review',
+    name: 'Trip Plan Review',
+    note: 'Online review',
     usd: '$29',
     rmb: 'RMB 199',
-    description: 'A paid written review of dates, location, likely service fit, preparation checklist, and the safest next step.',
-    includes: ['Written logistics review', 'Preparation checklist', 'Credited if you book within 7 days'],
-    cta: 'Start with a readiness review',
+    description: 'A written review of your Shenzhen dates, support needs, possible service fit, and next practical steps.',
+    includes: ['Written reply', 'Preparation checklist', 'Credit applied if you book within 7 days'],
+    cta: 'Start with plan review',
   },
   {
-    name: 'Appointment Coordination',
+    name: 'Single Request Coordination',
+    note: 'Before arrival',
     usd: 'From $69',
     rmb: 'From RMB 499',
-    description: 'Client-side coordination for one routine appointment, checkup request, or local service request before arrival.',
-    includes: ['Request communication', 'Schedule and route confirmation', 'Provider fees separate'],
-    featured: true,
+    description: 'Coordination for one routine appointment request, checkup logistics request, or local service request.',
+    includes: ['Request communication', 'Schedule and route check', 'Provider fees paid separately'],
     cta: 'Request coordination',
   },
   {
-    name: 'Half-Day Partner Coordination',
+    name: 'Half-Day Local Partner',
+    note: 'Up to 4 hours',
     usd: 'From $129',
     rmb: 'From RMB 899',
-    description: 'We coordinate a local interpreter or companion partner for up to 4 hours in Shenzhen.',
-    includes: ['Partner matching', '4-hour service window', 'Overtime quoted before confirmation'],
+    description: 'We arrange a local interpreter or companion partner for a scheduled visit or local errand in Shenzhen.',
+    includes: ['Partner matching', 'Partner briefing', 'Overtime quoted before confirmation'],
     cta: 'Check partner availability',
   },
   {
-    name: 'Full-Day Partner Coordination',
+    name: 'Full-Day Local Partner',
+    note: 'Up to 8 hours',
     usd: 'From $279',
     rmb: 'From RMB 1,980',
     description: 'For longer visits, multi-stop days, or business support where Comilus manages the local partner arrangement.',
-    includes: ['Partner matching', '8-hour service window', 'Transport costs separate'],
+    includes: ['Partner matching', 'Partner briefing', 'Transport costs separate'],
     cta: 'Request a full-day quote',
   },
 ]
 
 const pricingFactors = [
-  ['What Comilus earns', 'The quoted Comilus service fee includes coordination, partner matching, written scope, schedule confirmation, client communication, and service management. This is the margin that makes the business sustainable.'],
-  ['What changes the quote', 'City, service duration, language, urgency, weekend timing, hospital rules, partner availability, professional difficulty, and overtime can all change the final price.'],
+  ['What your fee covers', 'Your Comilus fee covers request review, written scope, partner matching, schedule checks, client communication, and service management. It is not a hospital or treatment fee.'],
+  ['Why quotes can change', 'Language, city, service duration, urgency, weekend timing, provider rules, partner availability, professional difficulty, and overtime can change the final quote.'],
   ['What stays separate', 'Hospital, clinic, lab, hotel, transport, parking, meals, ticket, and provider charges should normally be paid directly by the client unless a written quote clearly says otherwise.'],
 ]
 
 const faqItems = [
-  ['Why is Comilus more expensive than some local companion apps?', 'Local low-cost platforms usually sell basic domestic companion time. Comilus prices for international visitor coordination: English communication, pre-visit planning, written scope, partner matching, schedule confirmation, risk boundaries, and client-side service management.'],
+  ['Why is Comilus more expensive than some local companion apps?', 'Local low-cost platforms usually sell basic domestic companion time. Comilus prices for international visitor support: English communication, pre-visit planning, written scope, partner matching, schedule confirmation, risk boundaries, and service management.'],
   ['Do you personally provide the interpreter or companion?', 'Not always. Comilus may coordinate independent interpreters, local companions, drivers, or service partners. We focus on matching, scope control, communication, and making sure the arrangement fits our boundaries.'],
   ['Are hospital or checkup fees included?', 'No, not by default. Provider charges are separate and should normally be paid directly by the client to the provider. If any third-party cost is included, it must be clearly written in the quote.'],
   ['Can you recommend the best hospital or guarantee access?', 'No. We can coordinate logistics and public-facing communication, but we do not sell hospital access, rank providers, guarantee acceptance, or promise medical results.'],
@@ -356,8 +359,8 @@ function PricingGrid() {
   return (
     <div className="pricing-grid">
       {pricingPlans.map((plan) => (
-        <article className={plan.featured ? 'pricing-card featured' : 'pricing-card'} key={plan.name}>
-          {plan.featured && <span className="plan-marker">Most requested</span>}
+        <article className="pricing-card" key={plan.name}>
+          <span className="plan-note">{plan.note}</span>
           <h3>{plan.name}</h3>
           <div className="price-line">
             <strong>{plan.usd}</strong>
@@ -430,7 +433,7 @@ function RequestForm() {
         </label>
         <label>
           Package interest
-          <select name="package" defaultValue="Appointment Coordination">
+          <select name="package" defaultValue="Single Request Coordination">
             {pricingPlans.map((plan) => (
               <option key={plan.name}>{plan.name}</option>
             ))}
@@ -478,7 +481,7 @@ function HomePage() {
         <div className="hero-copy">
           <h1>Shenzhen local support for international visitors</h1>
           <p className="hero-lede">
-            A client-side coordination service for routine checkup logistics, interpreter and companion partner matching, business visit help, and practical arrival setup.
+            Local coordination for routine checkup logistics, interpreter and companion partner matching, business visit help, and practical arrival setup.
           </p>
           <p className="hero-note">
             We coordinate logistics, communication, and local partners only. Doctors and qualified professionals make all medical or legal decisions.
@@ -533,7 +536,7 @@ function HomePage() {
         <div className="section-heading">
           <h2>A narrow, documented service model</h2>
           <p>
-            Comilus is built to earn from coordination without crossing professional boundaries. We confirm scope, price, partner role, exclusions, and cancellation terms before paid work begins.
+            Comilus is built to provide useful coordination without crossing professional boundaries. We confirm scope, price, partner role, exclusions, and cancellation terms before paid work begins.
           </p>
         </div>
         <ServiceGrid compact />
@@ -547,7 +550,7 @@ function ServicesPage() {
     <>
       <PageHero
         title="Services"
-        text="Practical customer-side coordination for visitors who need Shenzhen to be understandable, scheduled, and documented without relying on informal arrangements."
+        text="Practical local coordination for visitors who need Shenzhen to be understandable, scheduled, and documented without relying on informal arrangements."
         image={businessImage}
       >
         <div className="hero-actions">
@@ -665,10 +668,16 @@ function PricingPage() {
     <>
       <PageHero
         title="Pricing"
-        text="Starting prices for review, coordination, and partner-managed support. Final quotes depend on scope, timing, location, language, urgency, and partner availability."
+        text="Starting service fees for planning, coordination, and local partner arrangements. Final quotes are confirmed in writing before payment."
         image={businessImage}
       />
       <section className="section pricing-section">
+        <div className="pricing-intro">
+          <h2>Service fees, not medical fees</h2>
+          <p>
+            These prices are Comilus coordination fees. Provider charges, checkup charges, transport, special-language interpreters, overtime, and other third-party costs are separate unless a written quote includes them.
+          </p>
+        </div>
         <PricingGrid />
         <div className="pricing-explainer">
           {pricingFactors.map(([title, text]) => (
@@ -681,7 +690,7 @@ function PricingPage() {
         <div className="payment-rules">
           <article>
             <h3>Payment terms</h3>
-            <p>Online reviews and appointment coordination are prepaid. Partner-managed in-person support is normally reserved with a 50% deposit, with the remaining balance due 24 hours before the scheduled start time.</p>
+            <p>Online reviews and appointment coordination are prepaid. In-person partner arrangements are normally reserved with a 50% deposit, with the remaining balance due 24 hours before the scheduled start time.</p>
           </article>
           <article>
             <h3>Extra costs</h3>
