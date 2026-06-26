@@ -28,7 +28,7 @@ const termsSections = [
 ]
 
 const privacySections = [
-  ['Information we collect', 'The public request form asks for name, contact method, Shenzhen dates, package interest, support category, request details, and service-scope acknowledgement.'],
+  ['Information we collect', 'The public request form asks for name, contact method, current country or city, preferred language, Shenzhen dates, package interest, support category, local partner need, timing, expected budget, request details, and service-scope acknowledgement.'],
   ['Sensitive information', 'Do not submit medical records, passport images, payment credentials, insurance cards, diagnosis details, bank details, or emergency information through the public form. If more information is needed later, we will ask for permission and explain why.'],
   ['How we use information', 'We use request details to assess whether the request fits our scope, respond to the client, prepare a quote, coordinate agreed support, and keep a written service trail.'],
   ['Third-party platforms', 'Messages sent by email, WhatsApp, WeChat, Telegram, PayPal, Netlify forms, or other platforms may also be processed by those third-party services under their own policies.'],
@@ -96,10 +96,10 @@ const operatingStandards = [
 ]
 
 const processSteps = [
-  ['01', 'Request review', 'You send dates, contact method, and the practical support you need.'],
-  ['02', 'Scope check', 'We confirm whether the request is within our coordination boundary.'],
-  ['03', 'Quote and plan', 'You receive a written scope, price, timing, exclusions, and payment instructions.'],
-  ['04', 'Delivery', 'We coordinate logistics while licensed providers make all medical or professional decisions.'],
+  ['01', 'Request review', 'You send dates, location, preferred language, contact method, and the support you need.'],
+  ['02', 'Fit check', 'We check whether the request is practical, legal, non-emergency, and inside our service boundary.'],
+  ['03', 'Written quote', 'You receive a written scope, price, timing, exclusions, partner role, and payment instructions.'],
+  ['04', 'Coordination', 'We coordinate logistics and local partners while licensed providers make all medical or professional decisions.'],
 ]
 
 const pricingPlans = [
@@ -192,6 +192,12 @@ const contactOptions = [
     href: 'mailto:comilus@163.com',
     note: 'Best for detailed requests',
   },
+]
+
+const requestGuidance = [
+  ['What to include', 'Dates in Shenzhen, current country or city, preferred language, contact method, service type, timing, and whether you need an in-person local partner.'],
+  ['What happens next', 'We review whether the request fits our scope. If it does, we reply with questions or a written quote before requesting payment.'],
+  ['What not to send', 'Do not send medical records, passport images, payment credentials, insurance cards, diagnosis details, or emergency requests through this form.'],
 ]
 
 function Icon({ name }) {
@@ -428,6 +434,16 @@ function RequestForm() {
       </div>
       <div className="form-row">
         <label>
+          Current country or city
+          <input name="location" type="text" placeholder="Example: Singapore, London, Dubai" />
+        </label>
+        <label>
+          Preferred language
+          <input name="language" type="text" placeholder="Example: English, Arabic, Russian" />
+        </label>
+      </div>
+      <div className="form-row">
+        <label>
           Shenzhen dates
           <input name="date" type="text" placeholder="Example: July 12 to July 15" />
         </label>
@@ -441,21 +457,54 @@ function RequestForm() {
           </select>
         </label>
       </div>
-      <label>
-        Support needed
-        <select name="category" defaultValue="Routine checkup logistics">
-          <option>Routine checkup logistics</option>
-          <option>Arrival and city setup</option>
-          <option>Interpreter or companion coordination</option>
-          <option>Business visit coordination</option>
-          <option>Non-emergency appointment request</option>
-          <option>Shenzhen local help</option>
-          <option>Other</option>
-        </select>
-      </label>
+      <div className="form-row">
+        <label>
+          Support needed
+          <select name="category" defaultValue="Routine checkup logistics">
+            <option>Routine checkup logistics</option>
+            <option>Arrival and city setup</option>
+            <option>Interpreter or companion coordination</option>
+            <option>Business visit coordination</option>
+            <option>Non-emergency appointment request</option>
+            <option>Shenzhen local help</option>
+            <option>Other</option>
+          </select>
+        </label>
+        <label>
+          In-person local partner
+          <select name="local_partner" defaultValue="Not sure yet">
+            <option>Not sure yet</option>
+            <option>Yes, I may need an interpreter or companion</option>
+            <option>No, online coordination only</option>
+            <option>Maybe, depending on the quote</option>
+          </select>
+        </label>
+      </div>
+      <div className="form-row">
+        <label>
+          Timing
+          <select name="timing" defaultValue="Flexible">
+            <option>Flexible</option>
+            <option>Within 48 hours</option>
+            <option>This week</option>
+            <option>Specific appointment date</option>
+            <option>Not sure yet</option>
+          </select>
+        </label>
+        <label>
+          Expected budget
+          <select name="budget" defaultValue="Not sure yet">
+            <option>Not sure yet</option>
+            <option>Under $100</option>
+            <option>$100-$300</option>
+            <option>$300-$800</option>
+            <option>Over $800</option>
+          </select>
+        </label>
+      </div>
       <label>
         What should we help coordinate?
-        <textarea name="need" rows="5" placeholder="Example: I will be in Shenzhen on July 12 and need help coordinating a routine health checkup with Chinese-English support." />
+        <textarea name="need" rows="5" placeholder="Example: I will be in Shenzhen on July 12. I need help coordinating a routine checkup request and may need Chinese-English support for reception." />
       </label>
       <p className="form-disclaimer">
         We use your request details only to assess and respond to your support request. Do not submit medical records, passport images, payment credentials, or emergency requests through this form.
@@ -825,7 +874,15 @@ function ContactPage() {
       <section className="request-section">
         <div className="request-copy">
           <h2>Request review</h2>
-          <p>Use the form for practical requests only. Do not send medical records, passport images, payment credentials, or emergency requests.</p>
+          <p>Use the form for practical requests only. Clear details help us decide whether we can help and prepare a realistic quote.</p>
+          <div className="request-guidance">
+            {requestGuidance.map(([title, text]) => (
+              <article key={title}>
+                <h3>{title}</h3>
+                <p>{text}</p>
+              </article>
+            ))}
+          </div>
           <address>
             <span>Email</span>
             <a href="mailto:comilus@163.com">comilus@163.com</a>
